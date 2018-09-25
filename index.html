@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Bar Chart</title>
+	<script src="js/zoacres-chart.js"></script>
+	<!-- <script src="js/util.js"></script> -->
+	<style>
+	canvas {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	</style>
+</head>
+
+<body>
+	<div id="container" style="width: 75%;">
+		<canvas id="property-days-views"></canvas>
+	</div>
+
+	<script>
+		var days_view = ['2018-05-07', '2018-05-08', '2018-05-09', '2018-05-10', '2018-05-11', '2018-05-12', '2018-05-13', '2018-05-14', '2018-05-15', '2018-05-16', '2018-05-17', '2018-05-18', '2018-05-07', '2018-05-08', '2018-05-09', '2018-05-10', '2018-05-11', '2018-05-12', '2018-05-13', '2018-05-14', '2018-05-15', '2018-05-16', '2018-05-17', '2018-05-18'];
+		var color = Chart.helpers.color;
+		var barChartData = {
+			labels: days_view,
+			datasets: [{
+				label: 'Property Views',
+				backgroundColor: 'rgba(241, 61, 61, 0.8)',
+				data: [10,20,7,34,78,65,43,23,56,67,54,34,10,20,7,230,78,65,43,23,56,67,54,34]
+			}]
+
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('property-days-views').getContext('2d');
+			window.myBar = new Chart(ctx, {
+				type: 'bar',
+				data: barChartData,
+				options: {
+					responsive: true,
+					legend: {
+						position: 'none',
+					},
+					title: {
+						display: false,
+					}
+				}
+			});
+
+		};
+
+		
+	</script>
+</body>
+
+</html>
